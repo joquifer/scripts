@@ -1,0 +1,32 @@
+--> Script para subir conversiones cada hora a google ads
+
+
+
+var SPREADSHEET_ID = "https://docs.google.com/spreadsheets/d/Gc/edit?usp=sharing";
+
+var SHEET_NAME = "conversion-import-template";
+
+function main() {
+
+  var spreadsheet = SpreadsheetApp.openByUrl(SPREADSHEET_ID);
+
+  var sheet = spreadsheet.getSheetByName(SHEET_NAME);
+
+  var bulkUpload = AdWordsApp.bulkUploads()
+
+      .newFileUpload(sheet)
+
+      .forOfflineConversions();
+
+ 
+
+ 
+
+  // Call bulkUpload.apply() if you want the changes to actually happen.
+
+  bulkUpload.apply();
+
+ 
+
+}
+
